@@ -22,20 +22,16 @@
             </intent-filter>
         </activity>
         <activity android:name="com.mk.myapplication.WelcomeActivity"/>
-        <activity android:name="com.mk.myapplication.Resident_access"
-            tools:ignore="Instantiatable" />
-        <activity android:name="com.mk.myapplication.Resident_management"
-            tools:ignore="Instantiatable" />
-        <activity android:name="com.mk.myapplication.Resident_module"
-            tools:ignore="Instantiatable" />
-        <activity android:name="com.mk.myapplication.Visitor_module"
-            tools:ignore="Instantiatable" />
-        <activity android:name="com.mk.myapplication.MyConnect"
-            tools:ignore="Instantiatable" />
+        <activity android:name="com.mk.myapplication.Resident_access" tools:ignore="Instantiatable" />
+        <activity android:name="com.mk.myapplication.Resident_management" tools:ignore="Instantiatable" />
+        <activity android:name="com.mk.myapplication.Resident_module" tools:ignore="Instantiatable" />
+        <activity android:name="com.mk.myapplication.Visitor_module" tools:ignore="Instantiatable" />
+        <activity android:name="com.mk.myapplication.MyConnect" tools:ignore="Instantiatable" />
+        <activity android:name=".DetailActivity"/>
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET"
-        tools:ignore="ManifestOrder" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.INTERNET" tools:ignore="ManifestOrder" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+
+
 </manifest>

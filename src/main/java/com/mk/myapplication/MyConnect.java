@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+//连接数据库
 public class MyConnect {
     private final static String url="jdbc:mysql://10.0.2.2:3306/ArtShare?characterEncoding=UTF-8";
     private final static String username="root";

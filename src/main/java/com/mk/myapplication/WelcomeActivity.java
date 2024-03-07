@@ -30,7 +30,7 @@ public class WelcomeActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                goToLoginActivity();
+                goToMainActivity();
             }
         }, DELAY_TIME);
     }
@@ -38,7 +38,7 @@ public class WelcomeActivity extends AppCompatActivity {
     public void onBackPressed() {
         // 按下返回键时不执行任何操作
     }
-    private void goToLoginActivity() {
+    private void goToMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out); // 添加页面渐变的切换动画

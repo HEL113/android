@@ -3,29 +3,135 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
     android:orientation="vertical">
     <LinearLayout
         style="@style/wm_hw">
         <TextView
             android:id="@+id/title"
             style="@style/wm_hw"
+            android:background="#66ccff"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="@string/title"
+            android:textStyle="bold"
             android:textSize="30sp" />
     </LinearLayout>
-    <com.youth.banner.Banner
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:id="@+id/banner"
-        app:banner_radius="15dp"
-        android:layout_margin="10dp"
-        app:banner_auto_loop="true"
-        app:banner_loop_time="3500"
-        android:scrollIndicators="bottom"
-        app:banner_indicator_margin="5dp"
-        app:banner_indicator_normal_color="@color/white"
-        app:banner_indicator_selected_color="@color/blue"/>
+        android:layout_height="250dp"
+        android:layout_margin="10dp">
+
+        <com.youth.banner.Banner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/banner"
+            app:banner_radius="15dp"
+            app:banner_auto_loop="true"
+            app:banner_loop_time="3500"
+            android:scrollIndicators="bottom"
+            app:banner_indicator_margin="5dp"
+            app:banner_indicator_normal_color="@color/white"
+            app:banner_indicator_selected_color="@color/green" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#80000000"
+                android:orientation="vertical"
+                app:banner_radius="15dp"
+                android:padding="8dp">
+                <TextView
+                    android:id="@+id/imageTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_1"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </com.youth.banner.Banner>
+
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:id="@+id/resident_login"
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/resident"
+            app:tint="#808080"
+            android:contentDescription="@string/todo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/resident_login"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/community_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/information"
+                app:tint="#808080"
+                android:contentDescription="@string/todo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:text="@string/community_service"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/root"
+                app:tint="#808080"
+                android:contentDescription="@string/todo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/root_login"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"/>
+        </LinearLayout>
+    </LinearLayout>
 
 
 </LinearLayout>

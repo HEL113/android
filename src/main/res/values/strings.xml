@@ -11,4 +11,9 @@
     <string name="esc">返回</string>
     <string name="title">首页</string>
     <string name="lo_re">登陆/注册</string>
+    <string name="root_login">管理员登录</string>
+    <string name="community_service">社区服务</string>
+    <string name="resident_login">住户登录</string>
+    <string name="_1">天天学习丨中南海月刊（2024.02）</string>
+    <string name="todo">TODO</string>
 </resources>
