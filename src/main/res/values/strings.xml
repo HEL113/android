@@ -3,6 +3,7 @@
     <string name="welcome">欢迎使用</string>
     <string name="user">用户</string>
     <string name="phone">请输入手机号</string>
+    <string name="phone1">手机号格式错误</string>
     <string name="password">密码</string>
     <string name="password_label">请输入密码</string>
     <string name="login">登陆</string>
@@ -22,7 +23,7 @@
     <string name="yz1">请输入验证码</string>
     <string name="pwd">密码必须由字母和数字至少8位组成</string>
     <string name="use">姓名名和密码不能为空</string>
-    <string name="idc">身份证不能为空或输入错误</string>
+    <string name="idc">身份证格式错误</string>
     <string name="mandm">密码和确认密码不匹配</string>
     <string name="mm">用户名或密码错误</string>
     <string name="zhaobudao">找不到该用户，请注册</string>
@@ -33,4 +34,7 @@
     <string name="house_number1">请输入门牌号</string>
     <string name="id">身份证</string>
     <string name="id1">请输入身份证</string>
+    <string name="gr">个人信息</string>
+    <string name="root">管理员</string>
+    <string name="rootedit">请输入管理员账户</string>
 </resources>

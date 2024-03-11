@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class UserInfoActivity extends AppCompatActivity {
+public class RootInfoActivity extends AppCompatActivity {
     private TextView tvName, tvContactNumber, tvHouseNumber, tvGender, tvAge, tvId,tvDate;
 
     @Override
@@ -44,7 +44,7 @@ public class UserInfoActivity extends AppCompatActivity {
         ImageView ivBack = findViewById(R.id.iv_back);
         ivBack.setOnClickListener(v -> {
             if (checkLoginStatus()) {
-                Intent intent = new Intent(UserInfoActivity.this, MainActivity.class);
+                Intent intent = new Intent(RootInfoActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish(); // 结束当前页面
             } else {
@@ -101,29 +101,27 @@ public class UserInfoActivity extends AppCompatActivity {
     }
 
     private void logoutAndNavigateToLogin() {
-        clearLoginStatus();
+        clearAdminLoginStatus(); // 修改这里调用清除管理员登录状态的方法
 
-        Intent intent = new Intent(UserInfoActivity.this, Resident_module.class);
+        Intent intent = new Intent(RootInfoActivity.this, CenterHorizontal.class);
         intent.putExtra("username", getIntent().getStringExtra("username")); // 传递用户名到登录页面
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
     }
 
-    private void clearLoginStatus() {
-        SharedPreferences sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
+    private void clearAdminLoginStatus() {
+        SharedPreferences sharedPreferences = getSharedPreferences("admin_login", MODE_PRIVATE); // 修改为"admin_login"
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove("isLoggedIn"); // 只移除登录状态
+        editor.remove("isAdminLoggedIn"); // 移除管理员登录状态
+        editor.remove("admin_username"); // 建议也移除管理员用户名
         editor.apply();
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+    private boolean checkLoginStatus() {
+        // 修改此方法以检查管理员登录状态
+        SharedPreferences sharedPreferences = getSharedPreferences("admin_login", MODE_PRIVATE); // 修改为"admin_login"
+        return sharedPreferences.getBoolean("isAdminLoggedIn", false);
     }
 
-    private boolean checkLoginStatus() {
-        // 检查登录状态的逻辑
-        return false;
-    }
 }

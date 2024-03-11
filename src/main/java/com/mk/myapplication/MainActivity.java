@@ -9,7 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 
 import com.youth.banner.Banner;
 import com.youth.banner.adapter.BannerImageAdapter;
@@ -78,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         residentLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 创建 Intent 用于跳转到 LoginActivity
                 Intent intent = new Intent(MainActivity.this, Resident_module.class);
                 // 启动 LoginActivity
                 startActivity(intent);

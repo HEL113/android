@@ -1,6 +1,7 @@
 package com.mk.myapplication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -24,9 +25,11 @@ public class Resident_module extends AppCompatActivity {
             if (msg.what == 1) {
                 // 登录成功的处理逻辑
                 Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_LONG).show();
+
                 Intent intent = new Intent(Resident_module.this, UserInfoActivity.class);
                 intent.putExtra("username", usernameText.getText().toString());
                 startActivity(intent);
+                finish(); // 结束当前登录页面
             } else if (msg.what == 0) {
                 // 用户不存在的处理逻辑
                 Toast.makeText(getApplicationContext(), "用户不存在或密码错误", Toast.LENGTH_LONG).show();
@@ -37,10 +40,23 @@ public class Resident_module extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login); // 确保这里的布局文件名与你的XML文件名相匹配
 
-        initViews();
-        setupListeners();
+        // 检查登录状态
+        boolean isLoggedIn = checkLoginStatus();
+
+        if (isLoggedIn) {
+            // 用户已登录，直接跳转到用户信息页面
+            Intent intent = new Intent(Resident_module.this, UserInfoActivity.class);
+            intent.putExtra("username", getUsername());
+            startActivity(intent);
+            finish(); // 结束当前登录页面
+        } else {
+            // 用户未登录，显示登录页面
+            setContentView(R.layout.login); // 确保这里的布局文件名与你的XML文件名相匹配
+
+            initViews();
+            setupListeners();
+        }
     }
 
     private void initViews() {
@@ -81,6 +97,10 @@ public class Resident_module extends AppCompatActivity {
 
                 if (isSuccess) {
                     msg.what = 1; // 登录成功
+                    resident_dao.updateCheckInDate(usernameText.getText().toString());
+
+                    // 存储登录状态和用户名
+                    saveLoginStatus(true, username);
                 } else {
                     msg.what = 0; // 用户不存在
                 }
@@ -94,5 +114,25 @@ public class Resident_module extends AppCompatActivity {
         // 跳转到注册Activity的逻辑
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
+    }
+
+    // 检查登录状态和获取用户名
+    private boolean checkLoginStatus() {
+        SharedPreferences sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
+        return sharedPreferences.getBoolean("isLoggedIn", false);
+    }
+
+    private String getUsername() {
+        SharedPreferences sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
+        return sharedPreferences.getString("username", "");
+    }
+
+    // 存储登录状态和用户名
+    private void saveLoginStatus(boolean isLoggedIn, String username) {
+        SharedPreferences sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isLoggedIn", isLoggedIn);
+        editor.putString("username", username);
+        editor.apply();
     }
 }

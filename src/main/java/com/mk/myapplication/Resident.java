@@ -1,5 +1,7 @@
 package com.mk.myapplication;
 
+import java.sql.Timestamp;
+
 public class Resident {
 /*
 * id
@@ -40,7 +42,16 @@ public class Resident {
     public void setResident_user_id(int resident_user_id) {
         this.resident_user_id = resident_user_id;
     }
+    private String checkInDate;
 
+
+    public String getCheckInDate() {
+        return checkInDate;
+    }
+
+    public void setCheckInDate(String checkInDate) {
+        this.checkInDate = checkInDate;
+    }
     public String getResident_name() {
         return resident_name;
     }
@@ -96,4 +107,21 @@ public class Resident {
     public void setId(String id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "Resident{" +
+                "resident_user_id=" + resident_user_id +
+                ", resident_name='" + resident_name + '\'' +
+                ", contact_number='" + contact_number + '\'' +
+                ", password='" + password + '\'' +
+                ", house_number=" + house_number +
+                ", gender='" + gender + '\'' +
+                ", age=" + age +
+                ", id='" + id + '\'' +
+                '}';
+    }
+
+
+
 }

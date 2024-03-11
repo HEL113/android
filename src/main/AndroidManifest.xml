@@ -16,7 +16,8 @@
             android:name=".MainActivity"
             android:label=""
             android:exported="true"
-            tools:ignore="Instantiatable">
+            tools:ignore="Instantiatable"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -28,13 +29,14 @@
         <activity android:name=".WelcomeActivity"/>
         <activity android:name=".Resident_access"  />
         <activity android:name=".Resident_management"/>
-        <activity android:name=".Resident_module"/>
+        <activity android:name=".Resident_module" />
         <activity android:name=".Visitor_module"/>
         <activity android:name=".MyConnect"/>
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".Resident_dao"/>
         <activity android:name=".Resident"/>
         <activity android:name=".UserInfoActivity"/>
+        <activity android:name=".RootInfoActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"  />

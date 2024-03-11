@@ -12,7 +12,7 @@ public class MyConnect {
 
     private static final String TAG = "mysql11111";
 
-    public static final String url="jdbc:mysql://192.168.61.163:3306/community";
+    public static final String url="jdbc:mysql://192.168.213.139:3306/community";
     public static final String user="root";
     public static final String pas="1234567";
     public static Connection conn = null;
@@ -21,7 +21,6 @@ public class MyConnect {
 
 
     public static Connection getConn() {
-        Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(url,user,pas);
