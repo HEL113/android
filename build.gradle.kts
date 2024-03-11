@@ -40,9 +40,13 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.8.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(files("libs\\mysql-connector-java-5.1.49.jar"))
+
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation ("androidx.core:core:1.7.0")
 
     implementation ("io.github.youth5201314:banner:2.2.2")
     implementation ("com.github.bumptech.glide:glide:4.6.1")

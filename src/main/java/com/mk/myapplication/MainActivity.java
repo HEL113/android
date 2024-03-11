@@ -2,7 +2,9 @@ package com.mk.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +20,7 @@ import com.youth.banner.listener.OnPageChangeListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//主页面
 public class MainActivity extends AppCompatActivity {
 
     private Banner banner;
@@ -68,9 +70,37 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("image_position", position);
                 startActivity(intent);
             }
+        });banner.start();
+        LinearLayout residentLogin = findViewById(R.id.resident_login);
+        LinearLayout communityService = findViewById(R.id.community_service);
+        LinearLayout centerHorizontal = findViewById(R.id.center_horizontal);
+        // 为 社区用户登录 设置点击事件监听器
+        residentLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 创建 Intent 用于跳转到 LoginActivity
+                Intent intent = new Intent(MainActivity.this, Resident_module.class);
+                // 启动 LoginActivity
+                startActivity(intent);
+            }
+        });
+        // 为 进入社区服务 设置点击事件监听器
+        communityService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CommunityService.class);
+                startActivity(intent);
+            }
+        });
+        // 为 管理员登录 设置点击事件监听器
+        centerHorizontal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,CenterHorizontal.class);
+                startActivity(intent);
+            }
         });
 
-        banner.start();
     }
     private void initBannerList() {
         bannerList = new ArrayList<>();

@@ -9,7 +9,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+//网页跳转
 public class DetailActivity extends AppCompatActivity {
     private WebView detailWebView;
     private ImageView ivBack;

@@ -13,7 +13,8 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31" >
         <activity
-            android:name="com.mk.myapplication.MainActivity"
+            android:name=".MainActivity"
+            android:label=""
             android:exported="true"
             tools:ignore="Instantiatable">
             <intent-filter>
@@ -21,17 +22,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.mk.myapplication.WelcomeActivity"/>
-        <activity android:name="com.mk.myapplication.Resident_access" tools:ignore="Instantiatable" />
-        <activity android:name="com.mk.myapplication.Resident_management" tools:ignore="Instantiatable" />
-        <activity android:name="com.mk.myapplication.Resident_module" tools:ignore="Instantiatable" />
-        <activity android:name="com.mk.myapplication.Visitor_module" tools:ignore="Instantiatable" />
-        <activity android:name="com.mk.myapplication.MyConnect" tools:ignore="Instantiatable" />
+        <activity android:name=".CenterHorizontal"/>
+        <activity android:name=".CommunityService"/>
         <activity android:name=".DetailActivity"/>
+        <activity android:name=".WelcomeActivity"/>
+        <activity android:name=".Resident_access"  />
+        <activity android:name=".Resident_management"/>
+        <activity android:name=".Resident_module"/>
+        <activity android:name=".Visitor_module"/>
+        <activity android:name=".MyConnect"/>
+        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".Resident_dao"/>
+        <activity android:name=".Resident"/>
+        <activity android:name=".UserInfoActivity"/>
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" tools:ignore="ManifestOrder" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
-
+    <uses-permission android:name="android.permission.INTERNET"  />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

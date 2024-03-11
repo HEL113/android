@@ -11,5 +11,8 @@
     <color name="gray">#808080</color>
     <color name="pink">#FFC0CB</color>
     <color name="brown">#A52A2A</color>
+    <color name="colorPressed">#0066FF</color> <!-- 按下状态的颜色 -->
+    <color name="colorFocused">#0099FF</color> <!-- 获取焦点状态的颜色 -->
+    <color name="colorNormal">#66ccff</color> <!-- 默认状态的颜色 -->
 
 </resources>

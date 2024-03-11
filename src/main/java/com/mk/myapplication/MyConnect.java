@@ -1,38 +1,80 @@
 package com.mk.myapplication;
 
+import android.util.Log;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-//连接数据库
+
 public class MyConnect {
-    private final static String url="jdbc:mysql://10.0.2.2:3306/ArtShare?characterEncoding=UTF-8";
-    private final static String username="root";
-    private final static String password="1234567";
-    private Statement mStatement;
-    private Connection mConnection;
-    static {
+
+    private static final String TAG = "mysql11111";
+
+    public static final String url="jdbc:mysql://192.168.61.163:3306/community";
+    public static final String user="root";
+    public static final String pas="1234567";
+    public static Connection conn = null;
+    public PreparedStatement pt = null;
+    public ResultSet rs = null;
+
+
+    public static Connection getConn() {
+        Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-        }catch (ClassNotFoundException e){
-            System.out.println("加载驱动失败!!"+e.getMessage());
+            conn = DriverManager.getConnection(url,user,pas);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    }
-    public Connection getConnection(){
-        try {
-            mConnection= DriverManager.getConnection(url,username,password);
-        } catch (SQLException e) {
-            System.out.println("生成连接对象失败!!"+e.getMessage());
-        }
-        return mConnection;
-    }
-    public Statement getStatement(){
-        try {
-            mStatement=mConnection.createStatement();
-        } catch (SQLException e) {
-            System.out.println("生成statment对象失败!!"+e.getMessage());
-        }
-        return mStatement;
+        return conn;
     }
 
+    public static void close(Connection conn,PreparedStatement pt,ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (pt != null) {
+            try {
+                pt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public static void close(Connection conn,PreparedStatement pt) {
+
+        if (pt != null) {
+            try {
+                pt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
 }
+
+

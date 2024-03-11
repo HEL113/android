@@ -8,16 +8,17 @@
     android:orientation="vertical">
     <LinearLayout
         style="@style/wm_hw">
+
         <TextView
             android:id="@+id/title"
             style="@style/wm_hw"
-            android:background="#66ccff"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:background="#66ccff"
             android:gravity="center_horizontal"
             android:text="@string/title"
-            android:textStyle="bold"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:textStyle="bold" />
     </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
