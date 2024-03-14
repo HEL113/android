@@ -1,6 +1,8 @@
 package com.mk.myapplication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         banner = findViewById(R.id.banner);
@@ -82,14 +85,35 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        // 为 进入社区服务 设置点击事件监听器
+// 为 进入社区服务 设置点击事件监听器
         communityService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CommunityService.class);
-                startActivity(intent);
+                SharedPreferences sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
+                final String username = sharedPreferences.getString("username", "");
+
+                // 使用 AsyncTask 在子线程中执行数据库操作
+                new AsyncTask<Void, Void, Boolean>() {
+                    @Override
+                    protected Boolean doInBackground(Void... voids) {
+                        Resident_dao resident_dao = new Resident_dao();
+                        return resident_dao.ifex(username);
+                    }
+
+                    @Override
+                    protected void onPostExecute(Boolean ifex) {
+                        Intent intent = new Intent(MainActivity.this, CommunityService.class);
+                        if (ifex) {
+                            intent.putExtra("image_resource", R.drawable.e1); // 如果满足条件，设置需要的图片资源ID
+                        } else {
+                            intent.putExtra("image_resource",R.drawable.ex); // 如果不满足条件，设置默认的图片资源ID
+                        }
+                        startActivity(intent);
+                    }
+                }.execute();
             }
         });
+
         // 为 管理员登录 设置点击事件监听器
         centerHorizontal.setOnClickListener(new View.OnClickListener() {
             @Override

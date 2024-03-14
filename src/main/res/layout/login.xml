@@ -101,14 +101,6 @@
         android:text="@string/register"
         android:textSize="25sp" />
 
-    <TextView
-        android:id="@+id/tv_sms_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/register"
-        android:layout_below="@+id/register"
-        android:layout_marginTop="15dp"
-        android:text="@string/yzm"
-        android:textSize="16sp" />
+
 
 </RelativeLayout>

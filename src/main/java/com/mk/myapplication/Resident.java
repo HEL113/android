@@ -20,12 +20,13 @@ public class Resident {
     private String gender;
     private int age;
     private String id;
+    private String token;
 
     public Resident() {
     }
 
     public Resident(String resident_name, String contact_number,
-                    String password, int house_number, String gender, int age, String id) {
+                    String password, int house_number, String gender, int age, String id,String token) {
         this.resident_name = resident_name;
         this.contact_number = contact_number;
         this.password = password;
@@ -33,7 +34,10 @@ public class Resident {
         this.gender = gender;
         this.age = age;
         this.id = id;
+        this.token=token;
     }
+
+
 
     public int getResident_user_id() {
         return resident_user_id;
@@ -123,5 +127,7 @@ public class Resident {
     }
 
 
+    public String getToken() {return token;}
 
+    public void setToken(String token) {this.token=token;}
 }

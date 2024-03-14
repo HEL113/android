@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Random;
+
 public class Resident_module extends AppCompatActivity {
     private static final String TAG = "login";
 
@@ -52,7 +54,7 @@ public class Resident_module extends AppCompatActivity {
             finish(); // 结束当前登录页面
         } else {
             // 用户未登录，显示登录页面
-            setContentView(R.layout.login); // 确保这里的布局文件名与你的XML文件名相匹配
+            setContentView(R.layout.login);
 
             initViews();
             setupListeners();
@@ -73,7 +75,6 @@ public class Resident_module extends AppCompatActivity {
 
     private void setupListeners() {
         ivBack.setOnClickListener(v -> onBackPressed());
-
         loginButton.setOnClickListener(v -> login());
         zhuceButton.setOnClickListener(v -> register());
     }
@@ -98,16 +99,30 @@ public class Resident_module extends AppCompatActivity {
                 if (isSuccess) {
                     msg.what = 1; // 登录成功
                     resident_dao.updateCheckInDate(usernameText.getText().toString());
+                    String token = generateToken(); // 生成6位随机数作为token
 
+                    resident_dao.infotoken(usernameText.getText().toString(),token);
                     // 存储登录状态和用户名
                     saveLoginStatus(true, username);
                 } else {
                     msg.what = 0; // 用户不存在
                 }
-
                 hand1.sendMessage(msg);
             }
         }.start();
+    }
+
+    private String generateToken() {
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder token = new StringBuilder();
+        Random random = new Random();
+
+        for (int i = 0; i < 6; i++) {
+            int index = random.nextInt(chars.length());
+            token.append(chars.charAt(index));
+        }
+
+        return token.toString();
     }
 
     private void register() {
@@ -126,6 +141,7 @@ public class Resident_module extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
         return sharedPreferences.getString("username", "");
     }
+
 
     // 存储登录状态和用户名
     private void saveLoginStatus(boolean isLoggedIn, String username) {

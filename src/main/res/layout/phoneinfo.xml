@@ -26,29 +26,13 @@
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true">
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-        <ImageView
-            android:id="@+id/esclogin"
-            android:layout_width="30dp"
-            android:layout_height="50dp"
-            android:src="@drawable/esclogin"
-            android:layout_margin="16dp"/>
-    </LinearLayout>
+
     <TableLayout
-        android:layout_width="300dp"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:stretchColumns="*"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="100dp">
 
         <TableRow
             android:background="@drawable/table_row_border">
@@ -58,41 +42,11 @@
                 android:padding="10dp"
                 android:text="@string/name" />
 
-            <TextView
-                android:id="@+id/tv_name"
-                android:padding="10dp" />
-        </TableRow>
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="300dp"
 
-        <TableRow
-            android:background="@drawable/table_row_border">
-            <TextView
-                android:text="@string/age"
                 android:padding="10dp" />
-            <TextView
-                android:id="@+id/tv_age"
-                android:padding="10dp" />
-        </TableRow>
-
-        <TableRow
-            android:background="@drawable/table_row_border">
-
-            <TextView
-                android:layout_width="118dp"
-                android:padding="10dp"
-                android:text="@string/gender" />
-            <TextView
-                android:id="@+id/tv_gender"
-                android:padding="10dp" />
-        </TableRow>
-
-        <TableRow
-            android:background="@drawable/table_row_border">
-            <TextView
-                android:text="@string/hose"
-                android:padding="8dp" />
-            <TextView
-                android:id="@+id/tv_house_number"
-                android:padding="8dp" />
         </TableRow>
 
         <TableRow
@@ -100,22 +54,11 @@
 
             <TextView
                 android:padding="10dp"
+
                 android:text="@string/id" />
 
-            <TextView
-                android:id="@+id/tv_id"
-                android:padding="10dp" />
-        </TableRow>
-
-        <TableRow
-            android:background="@drawable/table_row_border">
-
-            <TextView
-                android:padding="10dp"
-                android:text="@string/phon" />
-
-            <TextView
-                android:id="@+id/tv_contact_number"
+            <EditText
+                android:id="@+id/et_id"
                 android:padding="10dp" />
         </TableRow>
         <TableRow
@@ -123,20 +66,21 @@
 
             <TextView
                 android:padding="10dp"
-                android:text="@string/token" />
+                android:text="@string/infophone" />
 
-            <TextView
-                android:id="@+id/tv_token"
+            <EditText
+                android:id="@+id/et_contact_number"
                 android:padding="10dp" />
         </TableRow>
-
         <TableRow
             android:background="@drawable/table_row_border">
+
             <TextView
-                android:text="@string/date"
-                android:padding="10dp" />
-            <TextView
-                android:id="@+id/tv_date"
+                android:padding="10dp"
+                android:text="@string/updatephone" />
+
+            <EditText
+                android:id="@+id/et_contact_number1"
                 android:padding="10dp" />
         </TableRow>
 
@@ -148,6 +92,6 @@
         android:layout_marginEnd="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/update"
+        android:text="@string/updatePhone"
         tools:ignore="RtlHardcoded" />
 </LinearLayout>

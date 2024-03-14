@@ -34,9 +34,14 @@
         <activity android:name=".MyConnect"/>
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".Resident_dao"/>
+        <activity android:name=".Admin_dao"/>
         <activity android:name=".Resident"/>
         <activity android:name=".UserInfoActivity"/>
         <activity android:name=".RootInfoActivity"/>
+        <activity android:name=".PickupActivity"/>
+        <activity android:name=".DeliveryList"/>
+        <activity android:name=".DialogActivity"/>
+        <activity android:name=".Phoneinfo"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"  />

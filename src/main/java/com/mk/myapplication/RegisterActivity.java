@@ -82,7 +82,9 @@ public class RegisterActivity extends AppCompatActivity {
                     }else if (!password.equals(confirmPassword)) {
                         Toast.makeText(RegisterActivity.this, R.string.mandm, Toast.LENGTH_SHORT).show();
                         return;
-                    } else if (!password.matches("^(?=.*[a-zA-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$")) {
+                    } else if (!(password.matches("(?=.*\\d)(?=.*[a-zA-Z])") ||
+                            !(password.matches("(?=.*\\d)(?=.*[\\.\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)\\-\\+])")) ||
+                            !(password.matches("(?=.*[a-zA-Z])(?=.*[\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)\\-\\+])")))) {
                         Toast.makeText(RegisterActivity.this, R.string.pwd, Toast.LENGTH_SHORT).show();
                         return;
                     } else if (!idCard.matches("^\\d{17}[0-9Xx]$")) {
@@ -114,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 String gender = IDCardUtil.getGenderFromIDCard(idCard);
                                 Date birthDate = IDCardUtil.getBirthDateFromIDCard(idCard);
                                 int age = IDCardUtil.calculateAgeFromBirthDate(birthDate);
-                                boolean success = resident_dao.register(new Resident(username, phone, password, houseNumber, gender, age, idCard));
+                                boolean success = resident_dao.register(new Resident(username, phone, password, houseNumber, gender, age, idCard,"0"));
 
                                 // 发送注册结果的消息
                                 Message message = handler.obtainMessage(1, success);

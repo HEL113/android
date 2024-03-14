@@ -53,13 +53,12 @@ public class CenterHorizontal extends AppCompatActivity {
         if (isAdminLoggedIn) {
             // 管理员已登录，直接跳转到用户信息页面
             Intent intent = new Intent(CenterHorizontal.this, RootInfoActivity.class);
-            intent.putExtra("username", getAdminUsername());
+            intent.putExtra("admin_username", getAdminUsername());
             startActivity(intent);
             finish(); // 结束当前登录页面
         } else {
             // 管理员未登录，显示登录页面
             setContentView(R.layout.centerhorizontal_activity);
-
             initViews();
             setupListeners();
         }
@@ -71,7 +70,9 @@ public class CenterHorizontal extends AppCompatActivity {
         loginButton = findViewById(R.id.button);
         esc = findViewById(R.id.esc);
         ivBack = findViewById(R.id.iv_back);
-        String username = getIntent().getStringExtra("username");
+
+        // 获取管理员用户名并显示
+        String username = getIntent().getStringExtra("admin_username");
         if (username != null) {
             usernameText.setText(username);
         }
@@ -87,6 +88,7 @@ public class CenterHorizontal extends AppCompatActivity {
         EditText EditTextname = findViewById(R.id.usname1);
         EditText EditTextpassword = findViewById(R.id.password);
         String username = EditTextname.getText().toString();
+
         String password = EditTextpassword.getText().toString();
         if (username.isEmpty() || password.isEmpty()) {
             Toast.makeText(getApplicationContext(), "用户名和密码不能为空", Toast.LENGTH_LONG).show();
@@ -102,7 +104,8 @@ public class CenterHorizontal extends AppCompatActivity {
 
                 if (isSuccess) {
                     msg.what = 1; // 登录成功
-                    saveAdminLoginStatus(true, username);
+                    saveAdminLoginStatus(true,username);
+
                 } else {
                     msg.what = 0; // 用户不存在
                 }
@@ -129,6 +132,7 @@ public class CenterHorizontal extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("isAdminLoggedIn", isAdminLoggedIn);
         editor.putString("admin_username", adminUsername);
+
         editor.apply();
     }
 

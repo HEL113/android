@@ -12,7 +12,7 @@ public class MyConnect {
 
     private static final String TAG = "mysql11111";
 
-    public static final String url="jdbc:mysql://192.168.213.139:3306/community";
+    public static final String url="jdbc:mysql://192.168.137.1:3306/community";
     public static final String user="root";
     public static final String pas="1234567";
     public static Connection conn = null;

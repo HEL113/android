@@ -1,6 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
-</LinearLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#66ccff">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="@string/todo" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#66ccff"
+            android:text="@string/gr"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/name"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/tv_name"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@id/tv_name"
+        android:hint="@string/name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:id="@+id/tv_id"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/et_name"
+        android:text="@string/id"
+        android:textSize="18sp" />
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_name"
+        android:layout_alignBaseline="@id/tv_id"
+        android:layout_toEndOf="@id/tv_id"
+        android:inputType="number"
+        android:hint="@string/id"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_et_house_number"
+        android:layout_below="@id/id"
+        android:text="@string/hose"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/et_house_number"
+        android:layout_width="match_parent"
+        android:layout_toEndOf="@id/tv_et_house_number"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id"
+        android:layout_alignBaseline="@id/tv_et_house_number"
+        android:inputType="number"
+        android:hint="@string/hose"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_below="@id/et_house_number"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_psw"
+        android:text="@string/password"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_house_number"
+        android:layout_alignBaseline="@id/tv_psw"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@id/tv_psw"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:layout_alignParentEnd="true"
+        android:text="@string/save" />
+
+
+</RelativeLayout>
